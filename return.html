@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed - Coffee &amp; Almond</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .return-page { min-height: 100vh; padding-top: 80px; display: flex; flex-direction: column; }
+    .return-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(60px, 10vw, 120px) clamp(20px, 6vw, 48px);
+    }
+    .return-card {
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+    }
+    .return-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+    }
+    .return-icon svg { width: 28px; height: 28px; color: var(--teal); }
+    .return-card .section-label { justify-content: center; margin-bottom: 1rem; }
+    .return-card h1 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+    .return-card p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      max-width: 46ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .return-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--almond);
+      margin: 2rem auto;
+      opacity: 0.6;
+    }
+    .return-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 1.5rem 0 2.5rem;
+      text-align: left;
+    }
+    .return-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .return-step-num {
+      width: 22px;
+      height: 22px;
+      background: var(--teal);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.68rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .return-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body class="return-page">
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      Coffee &amp; Almond
+      <span>Organic Scrub</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Grounds for Everything</a></li>
+      <li><a href="scrub.html">The Scrub</a></li>
+      <li><a href="guasha.html">Gua Sha</a></li>
+      <li><a href="eyemask.html">Eye Mask</a></li>
+    </ul>
+  </nav>
+
+  <main class="return-main">
+    <div class="return-card">
+
+      <div class="return-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <span class="section-label">Payment confirmed</span>
+      <h1>Hey <em>Scrub Lover.</em></h1>
+      <p>Your order is on its way. Thank you for your order. Your payment was received and we're already getting your bundle ready.</p>
+      <p>Check your inbox - a confirmation email from PayFast is on its way to you now.</p>
+
+      <div class="return-divider"></div>
+
+      <ul class="return-steps">
+        <li>
+          <span class="return-step-num">1</span>
+          <span>We'll pack your Complete Ritual Bundle with care and drop it at our nearest PUDO locker addressed to yours.</span>
+        </li>
+        <li>
+          <span class="return-step-num">2</span>
+          <span>PUDO will notify you by SMS/email when your parcel is ready to collect.</span>
+        </li>
+        <li>
+          <span class="return-step-num">3</span>
+          <span>Collect from your chosen locker with the PIN PUDO sends you - no queue, no fuss.</span>
+        </li>
+      </ul>
+
+      <div class="return-actions">
+        <a href="index.html" class="btn-teal">Back to Home</a>
+        <a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" class="btn-ghost">Follow on Instagram</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2016–2026 Coffee &amp; Almond Organic Scrub. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

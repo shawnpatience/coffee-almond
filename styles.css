@@ -202,6 +202,31 @@ h2 em { font-style: italic; color: var(--teal); }
   font-weight: 500 !important;
 }
 .nav-cta:hover { background: var(--teal-dark) !important; }
+.nav-links a.active { color: var(--teal); font-weight: 500; }
+
+/* Hamburger button */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 101;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--espresso);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ════════════════════════════════════════
    HERO
@@ -457,7 +482,7 @@ h2 em { font-style: italic; color: var(--teal); }
 ════════════════════════════════════════ */
 .three-products {
   background: var(--warm-white);
-  padding: 130px 8vw;
+  padding: 40px 8vw 130px;
 }
 .three-products-header {
   text-align: center;
@@ -521,7 +546,21 @@ h2 em { font-style: italic; color: var(--teal); }
   font-size: 0.87rem;
   line-height: 1.8;
   color: var(--text-muted);
+  margin-bottom: 18px;
 }
+.product-card-link { display: block; text-decoration: none; }
+.product-card-cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-mid);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.product-card-cta:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
 
 /* Package box */
 .package-box {
@@ -919,9 +958,9 @@ h2 em { font-style: italic; color: var(--teal); }
 ════════════════════════════════════════ */
 .testimonials {
   background: var(--teal-dark);
-  padding: 120px 8vw;
+  padding: 60px 8vw 48px;
 }
-.testimonials h2 { color: var(--cream); margin-bottom: 60px; }
+.testimonials h2 { color: var(--cream); margin-bottom: 40px; }
 .testimonials h2 em { color: var(--teal-mid); }
 .testimonials-grid {
   display: grid;
@@ -973,13 +1012,13 @@ h2 em { font-style: italic; color: var(--teal); }
 footer {
   background: var(--espresso);
   color: var(--almond-light);
-  padding: 60px 8vw 36px;
+  padding: 36px 8vw 5px;
 }
 .footer-inner {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 60px;
-  margin-bottom: 56px;
+  margin-bottom: 24px;
 }
 .footer-brand {
   font-family: var(--serif);
@@ -1010,6 +1049,9 @@ footer {
   margin-bottom: 18px;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul.footer-social-icons { flex-direction: row; gap: 14px; align-items: center; }
+.footer-col ul.footer-social-icons a { display: flex; align-items: center; }
+.footer-col ul.footer-social-icons svg { width: 20px; height: 20px; }
 .footer-col a {
   text-decoration: none;
   font-size: 0.84rem;
@@ -1019,25 +1061,25 @@ footer {
 .footer-col a:hover { color: var(--cream); }
 .footer-bottom {
   border-top: 1px solid rgba(74,140,150,0.18);
-  padding-top: 26px;
+  padding-top: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 .footer-bottom p {
   font-size: 0.68rem;
   color: rgba(212,184,150,0.28);
 }
-.social-links { display: flex; gap: 18px; }
+.social-links { display: flex; gap: 16px; align-items: center; }
 .social-links a {
   text-decoration: none;
-  font-size: 0.66rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(212,184,150,0.36);
+  color: rgba(212,184,150,0.45);
   transition: color 0.2s;
+  display: flex;
+  align-items: center;
 }
-.social-links a:hover { color: var(--teal-mid); }
+.social-links a svg { width: 18px; height: 18px; }
+.social-links a:hover { color: var(--almond); }
 
 /* ════════════════════════════════════════
    RESPONSIVE
@@ -1063,12 +1105,73 @@ footer {
   .gallery { grid-template-columns: 1fr 1fr; }
   .gal-img.wide, .gal-img.tall { grid-column: auto; grid-row: auto; }
   .footer-inner { grid-template-columns: 1fr; gap: 36px; }
-  .nav-links { display: none; }
+  /* Hamburger replaces static nav links */
+  .nav-hamburger { display: flex; }
+  .nav-links {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    background: var(--warm-white);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a {
+    font-size: 1.1rem !important;
+    letter-spacing: 0.16em;
+    color: var(--text-muted) !important;
+    padding: 0 !important;
+  }
+  .nav-links a:hover { color: var(--teal) !important; }
+  .nav-links a.active { color: var(--teal) !important; }
+  .nav-cta {
+    background: none !important;
+    border: 1px solid var(--teal) !important;
+    color: var(--teal) !important;
+    padding: 12px 36px !important;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--teal) !important; color: white !important; }
 }
 
 @media (max-width: 600px) {
+  h1 { font-size: clamp(1.9rem, 8.5vw, 2.8rem); }
+  h2 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
+  .navbar { padding: 14px 5vw; }
+  .navbar.scrolled { padding: 12px 5vw; }
+  .hero-left { padding: 36px 5vw 48px; }
+  .hero-sub { font-size: 0.9rem; margin-bottom: 28px; }
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .btn-teal { width: 100%; justify-content: center; }
+  .btn-ghost { text-align: center; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .stat-num { font-size: 1.5rem; }
+  .three-products { padding: 60px 5vw; }
+  .three-products-header { margin-bottom: 40px; }
+  .deep-benefits { padding: 60px 5vw; }
+  .testimonials { padding: 60px 5vw; }
+  .ritual-flow { padding: 60px 5vw; }
+  .about { padding: 40px 5vw; }
   .ritual-steps { grid-template-columns: 1fr; }
-  .hero-stats { gap: 24px; }
-  .package-box { padding: 40px 5vw; }
+  .package-box { padding: 40px 5vw; gap: 32px; }
+  .package-right { padding: 32px 20px; }
+  .package-price { font-size: 2.6rem; }
+  .benefit-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
   .gallery { grid-template-columns: 1fr; }
+  .footer-inner { gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .deep-benefits-header { gap: 20px; }
+}
+
+@media (max-width: 400px) {
+  .hero-stats { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .pills { gap: 6px; }
+  .pill { font-size: 0.62rem; padding: 5px 12px; }
+  .benefit-card { padding: 28px 20px; }
+  .package-right { padding: 28px 16px; }
 }

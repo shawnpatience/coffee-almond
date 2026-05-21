@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grounds for Everything - Coffee &amp; Almond</title>
+  <meta name="description" content="The story behind Coffee &amp; Almond - born from a coffee shop, a mother's love, and skin that needed healing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page-specific styles ─────────────── */
+    .story-page {
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .story-hero {
+      background: var(--cream);
+      padding: clamp(40px, 6vw, 64px) 0 clamp(32px, 4vw, 52px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(196, 149, 106, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .story-hero .section-label {
+      justify-content: center;
+      color: var(--espresso);
+      margin-bottom: 1.25rem;
+    }
+    .story-hero h1 {
+      color: var(--espresso);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+    .story-hero h1 em { color: var(--latte); }
+    .story-hero p {
+      font-size: 1.05rem;
+      color: rgba(58, 42, 28, 0.65);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Body sections ──────────────────── */
+    .story-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: clamp(36px, 6vw, 60px) clamp(20px, 6vw, 48px) clamp(48px, 8vw, 72px);
+    }
+
+    .story-block {
+      margin-bottom: clamp(28px, 4vw, 44px);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .story-block.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .story-block .section-label { margin-bottom: 0.6rem; }
+
+    .story-block h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 0.85rem;
+      color: var(--espresso);
+    }
+
+    .story-block p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 62ch;
+      margin-bottom: 0.75rem;
+    }
+    .story-block p:last-child { margin-bottom: 0; }
+
+    .story-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--almond);
+      margin: clamp(24px, 3vw, 36px) 0;
+      opacity: 0.5;
+    }
+
+    /* ── Pull quote ──────────────────────── */
+    .story-quote {
+      border-left: 2px solid var(--teal);
+      padding: 1rem 0 1rem 2rem;
+      margin: 1.5rem 0;
+    }
+    .story-quote p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+      color: var(--espresso) !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+
+    /* ── CTA band ────────────────────────── */
+    .story-cta {
+      background: var(--teal-light);
+      padding: clamp(48px, 8vw, 80px) clamp(20px, 6vw, 48px);
+      text-align: center;
+    }
+    .story-cta .section-label { justify-content: center; }
+    .story-cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 0.75rem;
+    }
+    .story-cta p {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .story-cta .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: white;
+      padding: 0.875rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .story-cta .btn-primary:hover { background: var(--teal-dark); }
+
+    /* ── Placeholder badge ───────────────── */
+    .placeholder-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74, 140, 150, 0.1);
+      border: 1px dashed var(--teal-mid);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.875rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body class="story-page">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      Coffee &amp; Almond
+      <span>Organic Scrub</span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html" class="active">Grounds for Everything</a></li>
+      <li><a href="scrub.html">The Scrub</a></li>
+      <li><a href="guasha.html">Gua Sha</a></li>
+      <li><a href="eyemask.html">Eye Mask</a></li>
+      <li><a href="checkout.php" class="nav-cta">Purchase</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="story-hero">
+    <div class="container">
+      <span class="section-label">Grounds for Everything</span>
+      <h1>It started with a <em>coffee shop.</em></h1>
+      <p>A story of waste turned to wonder, a mother's determination, and skin that finally found its answer.</p>
+    </div>
+  </section>
+
+  <!-- ══ STORY BODY ══ -->
+  <main class="story-body">
+
+    <div class="story-block">
+      <span class="section-label">The beginning</span>
+      <h2>A question that kept <em>coming up.</em></h2>
+      <p>In 2016, Jodie helped a dear friend at the launch of his coffee shop called I Love Coffee - and somewhere between the roasting beans, the laughter and that intoxicating smell that makes everything feel a little more alive, a question kept coming up: what happens to all these grounds?</p>
+      <p>At the same time, life at home was asking its own questions. Her husband and young son were both struggling with eczema on their faces - red, irritated, unhappy skin. As any determined mother does, Jodie started researching. Then experimenting. Then researching some more.</p>
+      <p>Weeks passed. Different oils. Different textures. Different types of containers stacked up on the kitchen counter.</p>
+    </div>
+
+    <div class="story-divider"></div>
+
+    <div class="story-block">
+      <span class="section-label">The discovery</span>
+      <h2>And then - <em>it worked.</em></h2>
+      <p>Coffee &amp; Almond Organic Scrub was born from that very specific kind of love: the kind that starts with a problem and refuses to stop until it finds an answer. The kind that turns waste into wonder. The kind that makes a mother try one more time.</p>
+
+      <div class="story-quote">
+        <p>"The kind that starts with a problem and refuses to stop until it finds an answer. The kind that turns waste into wonder."</p>
+      </div>
+    </div>
+
+    <div class="story-divider"></div>
+
+    <div class="story-block">
+      <span class="section-label">The launch</span>
+      <h2>Small. Beautiful. <em>Real.</em></h2>
+      <p>The launch was small and beautiful - a limited budget, a table at a market and a product made with complete conviction. The reviews poured in. The jars flew off the table. Word spread the way good things do - person to person, skin to skin.</p>
+      <p>Life happened, as it does. The economy shifted. A pandemic arrived uninvited. The world got complicated and the side hustle had to breathe.</p>
+      <p>But the passion never left. Neither did the belief.</p>
+    </div>
+
+    <div class="story-divider"></div>
+
+    <div class="story-block">
+      <span class="section-label">Still here</span>
+      <h2>We found our <em>way back.</em></h2>
+      <p>Because when something genuinely works, when it starts on your own family's skin - you don't give up on it. You just find your way back.</p>
+      <p>We're still here. Still small-batch. Still obsessed with what we put in the jar. And we're here because of one simple truth that hasn't changed since 2016.</p>
+
+      <div class="story-quote">
+        <p>"If your coffee wakes you up in the morning imagine what it can do for your skin!"</p>
+      </div>
+
+      <p style="color:var(--espresso);font-weight:600;">Welcome to Coffee &amp; Almond. We're so glad you found us. ☕</p>
+    </div>
+
+  </main>
+
+  <script>
+    // Scroll reveal for story blocks
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.story-block').forEach(el => obs.observe(el));
+
+    // Keep navbar solid on this page
+    document.getElementById('navbar').classList.add('scrolled');
+
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

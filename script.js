@@ -12,6 +12,24 @@
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
 
+  /* ── Hamburger menu ─────────────────────── */
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
 
   /* ── Scroll reveal (.fade-up) ──────────── */
   const revealObs = new IntersectionObserver(entries => {

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Weighted Eye Mask - Coffee &amp; Almond</title>
+  <meta name="description" content="A weighted eye mask that works warm or cold. Calms your nervous system, blocks all light, and gives you the best sleep of your life." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .product-page { min-height: 100vh; padding-top: 80px; }
+
+    /* ── Product hero ── */
+    .product-hero {
+      background: var(--cream);
+      padding: clamp(40px, 6vw, 64px) 0 clamp(32px, 4vw, 52px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(196,149,106,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .product-hero .section-label { justify-content: center; color: var(--espresso); margin-bottom: 1.25rem; }
+    .product-hero h1 { color: var(--espresso); max-width: 680px; margin: 0 auto 1.5rem; }
+    .product-hero h1 em { color: var(--latte); }
+    .product-hero p {
+      font-size: 1.05rem;
+      color: rgba(58, 42, 28, 0.65);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .product-hero .hero-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .product-hero .pill {
+      border-color: var(--teal-dark);
+      color: var(--teal-dark);
+    }
+
+    /* ── About block ── */
+    .product-about {
+      background: var(--warm-white);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 8vw, 120px);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .product-about h2 { margin-bottom: 22px; }
+    .product-about p {
+      font-size: 0.96rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      max-width: 64ch;
+    }
+    .product-about p strong { color: var(--espresso); font-weight: 500; }
+
+    /* ── Benefits grid ── */
+    .product-benefits {
+      background: var(--warm-white);
+      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+    }
+    .product-benefits-header {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 64px);
+    }
+    .product-benefits-header h2 { margin-bottom: 14px; }
+    .product-benefits-header p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    @media (max-width: 900px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    /* ── Temp section ── */
+    .product-temp {
+      background: var(--cream);
+      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+    }
+    .product-temp-header {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 60px);
+    }
+    .product-temp-header h2 { margin-bottom: 14px; }
+    .product-temp-header p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 50ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* ── Ritual step ── */
+    .product-ritual {
+      background: var(--warm-white);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 8vw, 80px);
+      text-align: center;
+    }
+    .product-ritual h2 { margin-bottom: clamp(40px, 6vw, 60px); }
+    .product-ritual .ritual-steps { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .product-ritual .ritual-steps::before { display: none; }
+
+    /* ── CTA band ── */
+    .product-cta {
+      background: var(--teal-dark);
+      padding: clamp(48px, 8vw, 80px) clamp(20px, 6vw, 48px);
+      text-align: center;
+    }
+    .product-cta .section-label { justify-content: center; color: var(--teal-light); }
+    .product-cta h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--cream); margin-bottom: 0.75rem; }
+    .product-cta h2 em { color: var(--teal-mid); }
+    .product-cta p {
+      font-size: 0.97rem;
+      color: rgba(214,237,240,0.7);
+      margin-bottom: 2rem;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .product-cta .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      color: var(--espresso);
+      padding: 0.875rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .product-cta .btn-primary:hover { background: var(--almond-light); }
+  </style>
+</head>
+<body class="product-page">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      Coffee &amp; Almond
+      <span>Organic Scrub</span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Grounds for Everything</a></li>
+      <li><a href="scrub.html">The Scrub</a></li>
+      <li><a href="guasha.html">Gua Sha</a></li>
+      <li><a href="eyemask.html" class="active">Eye Mask</a></li>
+      <li><a href="checkout.php" class="nav-cta">Purchase</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="product-hero">
+    <div class="container">
+      <span class="section-label">The Weighted Eye Mask · Step 03</span>
+      <h1>Rest deeper. <em>Wake softer.</em></h1>
+      <p>Gentle weight. Complete darkness. Warm or cold. The ritual that ends your day - and starts tomorrow better.</p>
+      <div class="hero-pills">
+        <span class="pill">Weighted Pressure</span>
+        <span class="pill">Total Blackout</span>
+        <span class="pill">Heat &amp; Cool</span>
+        <span class="pill">Better Sleep</span>
+        <span class="pill">Travel-Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="product-about">
+    <div class="about-text fade-up">
+      <div class="section-label">What it does</div>
+      <h2>Darkness, pressure, <em>and temperature.</em></h2>
+      <p>Our weighted eye mask works on three levels. The <strong>gentle weight</strong> applies deep-touch pressure that activates your parasympathetic nervous system - the same principle behind weighted blankets, but targeted exactly where you need it.</p>
+      <p>The <strong>complete blackout</strong> signals your brain to produce melatonin, accelerating sleep onset. And the ability to <strong>heat or cool</strong> the mask adds spa-level therapy to your nightly routine - for free, at home, every night.</p>
+    </div>
+  </section>
+
+  <!-- ══ BENEFITS ══ -->
+  <section class="product-benefits">
+    <div class="product-benefits-header fade-up">
+      <div class="section-label section-label--center">The Benefits</div>
+      <h2>Six reasons you'll <em>sleep differently.</em></h2>
+      <p>Weight, darkness, and temperature therapy - all in one mask. Here's what happens when you use it.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span>
+        <h3>Calms the Nervous System</h3>
+        <p>The gentle weight applies deep-touch pressure - same principle as a weighted blanket. Cortisol drops. The body shifts into rest-and-repair mode.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.08s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <h3>Total Light Blackout</h3>
+        <p>Complete darkness triggers melatonin production. You fall asleep faster and sleep deeper - your body gets the biological signal to rest.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.16s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <h3>Relieves Headaches &amp; Migraines</h3>
+        <p>Gentle pressure on key points around the eyes and temples reduces tension headaches. Blocks light that worsens migraines. Works warm or cold.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M12 6v6"/><path d="m9 15 3-3 3 3"/></svg></span>
+        <h3>Faster Sleep Onset</h3>
+        <p>The combination of darkness and pressure quiets an overactive mind. You stop mentally rehearsing your day and start drifting within minutes.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.08s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
+        <h3>Perfect for Travel</h3>
+        <p>Blocks light on planes, in hotels, during night shifts. The weight keeps it in place - no slipping, no straps digging in. Portable self-care anywhere.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.16s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <h3>Reduces Puffiness &amp; Dark Circles</h3>
+        <p>The gentle pressure improves circulation in the delicate eye area. Use it chilled for an immediate, visible de-puffing effect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HEATED vs CHILLED ══ -->
+  <section class="product-temp">
+    <div class="product-temp-header fade-up">
+      <div class="section-label section-label--center">Temperature Guide</div>
+      <h2>Warm to wind down. <em>Cold to reset.</em></h2>
+      <p>Use it heated to melt away the day, or chilled to de-puff and energise. Both are equally transformative.</p>
+    </div>
+    <div class="eye-temp-grid">
+      <div class="temp-card warm fade-up">
+        <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+        <h4>Heated: The Wind - Down</h4>
+        <p>Warm in the microwave 20–30 seconds. The gentle moist heat delivers spa-level results at home:</p>
+        <ul>
+          <li>Relaxes muscles around the eyes and temples</li>
+          <li>Stimulates meibomian glands to lubricate dry eyes</li>
+          <li>Opens sinus passages - relief for congestion headaches</li>
+          <li>Promotes deeper muscle relaxation for faster sleep</li>
+          <li>Soothes screen-fatigue and eye strain</li>
+          <li>Feels like a warm facial - nightly, at home, for free</li>
+        </ul>
+      </div>
+      <div class="temp-card cold fade-up" style="transition-delay:.1s">
+        <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></div>
+        <h4>Chilled: The Morning Reset</h4>
+        <p>Place in the fridge 20–30 minutes. Cold therapy on the eye area provides immediate, visible results:</p>
+        <ul>
+          <li>Instantly reduces puffiness and morning swelling</li>
+          <li>Constricts blood vessels to reduce dark circles</li>
+          <li>Numbs and eases migraine pain without medication</li>
+          <li>Anti-inflammatory - calms redness and irritation</li>
+          <li>Refreshing and energising before a big day</li>
+          <li>Shrinks puffiness around sinuses and cheeks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RITUAL STEP ══ -->
+  <section class="product-ritual">
+    <div class="section-label section-label--center fade-up">Your ritual</div>
+    <h2 class="fade-up">Step 04 - <em>Rest.</em></h2>
+    <div class="ritual-steps">
+      <div class="ritual-step fade-up">
+        <div class="step-num-small">Step 04</div>
+        <div class="step-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+        <h4>Rest with the Eye Mask</h4>
+        <p>Heat it for a warm wind-down, or cool it in the fridge for a de-puffing reset. Place over the eyes. Let the weight do the work. Lights out - your body takes it from here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="product-cta">
+    <div class="container">
+      <span class="section-label">Complete the ritual</span>
+      <h2>Your skin and your sleep <em>are waiting.</em></h2>
+      <p>The eye mask is Step 03. Start from the beginning - scrub, sculpt, rest. The complete bundle is R 450, delivered.</p>
+      <a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Shop the Bundle
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Coffee &amp; Almond<span>Organic Scrub</span></div>
+        <p class="footer-tagline">Three products. One ritual. Organic, intentional, and designed for every body.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="our-story.html">Grounds for Everything</a></li>
+          <li><a href="scrub.html">The Scrub</a></li>
+          <li><a href="guasha.html">Gua Sha</a></li>
+          <li><a href="eyemask.html">Eye Mask</a></li>
+          <li><a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener">Order</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Order &amp; Follow</h5>
+        <ul class="footer-social-icons">
+          <li><a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2016–2026 Coffee &amp; Almond Organic Scrub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    // Scroll reveal
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

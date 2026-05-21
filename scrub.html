@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Organic Scrub - Coffee &amp; Almond</title>
+  <meta name="description" content="100% organic coffee &amp; almond oil scrub. No fillers, no synthetics - just a scrub that genuinely works for every skin type." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .product-page { min-height: 100vh; padding-top: 80px; }
+
+    /* ── Product hero ── */
+    .product-hero {
+      background: var(--cream);
+      padding: clamp(40px, 6vw, 64px) 0 clamp(32px, 4vw, 52px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(196,149,106,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .product-hero .section-label { justify-content: center; color: var(--espresso); margin-bottom: 1.25rem; }
+    .product-hero h1 { color: var(--espresso); max-width: 680px; margin: 0 auto 1.5rem; }
+    .product-hero h1 em { color: var(--latte); }
+    .product-hero p {
+      font-size: 1.05rem;
+      color: rgba(58, 42, 28, 0.65);
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .product-hero .hero-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .product-hero .pill {
+      border-color: var(--teal-dark);
+      color: var(--teal-dark);
+    }
+
+    /* ── About block ── */
+    .product-about {
+      background: var(--warm-white);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 8vw, 120px);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .product-about h2 { margin-bottom: 22px; }
+    .product-about p {
+      font-size: 0.96rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      max-width: 64ch;
+    }
+    .product-about p strong { color: var(--espresso); font-weight: 500; }
+
+    /* ── Benefits grid ── */
+    .product-benefits {
+      background: var(--warm-white);
+      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+    }
+    .product-benefits-header {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 64px);
+    }
+    .product-benefits-header h2 { margin-bottom: 14px; }
+    .product-benefits-header p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 52ch;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    @media (max-width: 900px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+    /* ── How to use ── */
+    .how-to-use {
+      background: var(--cream);
+      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+      text-align: center;
+    }
+    .how-to-use h2 { margin-bottom: clamp(40px, 6vw, 64px); }
+    .how-to-use .ritual-steps { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; gap: 48px; }
+    .how-to-use .ritual-steps::before { display: none; }
+    @media (max-width: 560px) { .how-to-use .ritual-steps { grid-template-columns: 1fr; } }
+
+    /* ── CTA band ── */
+    .product-cta {
+      background: var(--teal-light);
+      padding: clamp(48px, 8vw, 80px) clamp(20px, 6vw, 48px);
+      text-align: center;
+    }
+    .product-cta .section-label { justify-content: center; }
+    .product-cta h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 0.75rem; }
+    .product-cta p {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .product-cta .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: white;
+      padding: 0.875rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .product-cta .btn-primary:hover { background: var(--teal-dark); }
+  </style>
+</head>
+<body class="product-page">
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      Coffee &amp; Almond
+      <span>Organic Scrub</span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Grounds for Everything</a></li>
+      <li><a href="scrub.html" class="active">The Scrub</a></li>
+      <li><a href="guasha.html">Gua Sha</a></li>
+      <li><a href="eyemask.html">Eye Mask</a></li>
+      <li><a href="checkout.php" class="nav-cta">Purchase</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="product-hero">
+    <div class="container">
+      <span class="section-label">The Organic Scrub · Step 01</span>
+      <h1>Your skin's <em>favourite morning.</em></h1>
+      <p>100% organic. No fillers. No synthetics. Just a scrub that genuinely works - and a glow that lasts for days.</p>
+      <div class="hero-pills">
+        <span class="pill">100% Organic</span>
+        <span class="pill">Vegan</span>
+        <span class="pill">All Skin Types</span>
+        <span class="pill">Face &amp; Body</span>
+        <span class="pill">Gender Neutral</span>
+        <span class="pill">Handcrafted</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="product-about">
+    <div class="about-text fade-up">
+      <div class="section-label">What it is</div>
+      <h2>Ground coffee meets <em>sweet almond oil.</em></h2>
+      <p>Our Coffee &amp; Almond Organic Scrub is made with <strong>100% natural ingredients</strong> - ground coffee, sweet almond oil, and nothing your skin doesn't need. No fillers. No synthetics. Just a scrub that genuinely works.</p>
+      <p>Use it in the shower on your face, body, elbows, and knees. The coarse coffee grounds exfoliate while the almond oil nourishes. Rinse to reveal skin that glows for days - not hours. Suitable for all genders, all ages, all skin types.</p>
+    </div>
+  </section>
+
+  <!-- ══ BENEFITS ══ -->
+  <section class="product-benefits">
+    <div class="product-benefits-header fade-up">
+      <div class="section-label section-label--center">The Science</div>
+      <h2>Six reasons your skin <em>will thank you.</em></h2>
+      <p>Coffee and almond oil aren't random choices - they're a powerhouse combination with real, documented skin benefits.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21H17"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+        <h3>Balances Skin pH</h3>
+        <p>Coffee's polyphenols regulate your skin's pH - less sebum, fewer breakouts, and skin that stays smooth and hydrated all day.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.08s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
+        <h3>Reduces Cellulite</h3>
+        <p>Caffeine draws excess water from skin while the scrubbing motion boosts circulation - visibly plumping and smoothing dimpled areas.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.16s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
+        <h3>Boosts Collagen</h3>
+        <p>Antioxidants in coffee stimulate collagen production, smoothing fine lines and restoring elasticity for firmer-looking skin over time.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <h3>De-Puffs Eyes</h3>
+        <p>Caffeine tightens skin, fights free radicals, and visibly reduces dark circles and morning puffiness around the eye area.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.08s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
+        <h3>Almond Oil Brightens</h3>
+        <p>Niacinamide in almond oil fades age spots, blemishes, and dark circles for noticeably more radiant, even-toned skin.</p>
+      </div>
+      <div class="benefit-card fade-up" style="transition-delay:.16s">
+        <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"/></svg></span>
+        <h3>Soothes Eczema &amp; Psoriasis</h3>
+        <p>Anti-bacterial and anti-fungal properties of almond oil soothe irritated, inflamed skin while locking in moisture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW TO USE ══ -->
+  <section class="how-to-use">
+    <div class="section-label section-label--center fade-up">How to use it</div>
+    <h2 class="fade-up">Two steps to <em>glowing skin.</em></h2>
+    <div class="ritual-steps">
+      <div class="ritual-step fade-up">
+        <div class="step-num-small">Step 01</div>
+        <div class="step-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg></div>
+        <h4>Scrub in the Shower</h4>
+        <p>Apply in circular motions on wet skin - face, body, elbows, knees. Let the coffee grounds do the work. Rinse thoroughly to reveal impossibly smooth, glowing skin.</p>
+      </div>
+      <div class="ritual-step fade-up" style="transition-delay:.15s">
+        <div class="step-num-small">Step 02</div>
+        <div class="step-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div>
+        <h4>Pat Dry, Let it Work</h4>
+        <p>The sweet almond oil from the scrub stays in your skin after rinsing. Pat dry - don't rub - to lock in the nourishment. Your skin is already working. Now continue with the gua sha.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="product-cta">
+    <div class="container">
+      <span class="section-label">Ready to glow?</span>
+      <h2>Get the complete ritual.</h2>
+      <p>The scrub is Step 01. Pair it with the gua sha and weighted eye mask for a head-to-toe ritual that transforms your evening.</p>
+      <a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Shop the Bundle
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Coffee &amp; Almond<span>Organic Scrub</span></div>
+        <p class="footer-tagline">Three products. One ritual. Organic, intentional, and designed for every body.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="our-story.html">Grounds for Everything</a></li>
+          <li><a href="scrub.html">The Scrub</a></li>
+          <li><a href="guasha.html">Gua Sha</a></li>
+          <li><a href="eyemask.html">Eye Mask</a></li>
+          <li><a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener">Order</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Order &amp; Follow</h5>
+        <ul class="footer-social-icons">
+          <li><a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/coffeealmondorganicscrub/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2016–2026 Coffee &amp; Almond Organic Scrub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    // Scroll reveal
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
