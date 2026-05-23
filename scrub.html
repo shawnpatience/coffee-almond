@@ -51,16 +51,16 @@
     /* ── About block ── */
     .product-about {
       background: var(--warm-white);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 8vw, 120px);
+      padding: clamp(32px, 5vw, 56px) clamp(20px, 8vw, 120px);
       max-width: 860px;
       margin: 0 auto;
     }
-    .product-about h2 { margin-bottom: 22px; }
+    .product-about h2 { margin-bottom: 16px; }
     .product-about p {
       font-size: 0.96rem;
       line-height: 1.9;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       max-width: 64ch;
     }
     .product-about p strong { color: var(--espresso); font-weight: 500; }
@@ -68,13 +68,13 @@
     /* ── Benefits grid ── */
     .product-benefits {
       background: var(--warm-white);
-      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+      padding: clamp(32px, 5vw, 56px) clamp(20px, 8vw, 80px);
     }
     .product-benefits-header {
       text-align: center;
-      margin-bottom: clamp(40px, 6vw, 64px);
+      margin-bottom: clamp(24px, 4vw, 40px);
     }
-    .product-benefits-header h2 { margin-bottom: 14px; }
+    .product-benefits-header h2 { margin-bottom: 10px; }
     .product-benefits-header p {
       font-size: 0.96rem;
       color: var(--text-muted);
@@ -93,10 +93,10 @@
     /* ── How to use ── */
     .how-to-use {
       background: var(--cream);
-      padding: clamp(60px, 10vw, 110px) clamp(20px, 8vw, 80px);
+      padding: clamp(32px, 5vw, 56px) clamp(20px, 8vw, 80px);
       text-align: center;
     }
-    .how-to-use h2 { margin-bottom: clamp(40px, 6vw, 64px); }
+    .how-to-use h2 { margin-bottom: clamp(24px, 4vw, 40px); }
     .how-to-use .ritual-steps { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; gap: 48px; }
     .how-to-use .ritual-steps::before { display: none; }
     @media (max-width: 560px) { .how-to-use .ritual-steps { grid-template-columns: 1fr; } }
@@ -163,13 +163,13 @@
     <div class="container">
       <span class="section-label">The Organic Scrub · Step 01</span>
       <h1>Your skin's <em>favourite morning.</em></h1>
-      <p>100% organic. No fillers. No synthetics. Just a scrub that genuinely works - and a glow that lasts for days.</p>
+      <p>100% organic. No parabens. No preservatives.<br>Just a scrub that genuinely works - and a glow that lasts for days.</p>
       <div class="hero-pills">
         <span class="pill">100% Organic</span>
-        <span class="pill">Vegan</span>
+        <span class="pill">No Parabens</span>
         <span class="pill">All Skin Types</span>
         <span class="pill">Face &amp; Body</span>
-        <span class="pill">Gender Neutral</span>
+        <span class="pill">Unisex</span>
         <span class="pill">Handcrafted</span>
       </div>
     </div>
@@ -180,8 +180,8 @@
     <div class="about-text fade-up">
       <div class="section-label">What it is</div>
       <h2>Ground coffee meets <em>sweet almond oil.</em></h2>
-      <p>Our Coffee &amp; Almond Organic Scrub is made with <strong>100% natural ingredients</strong> - ground coffee, sweet almond oil, and nothing your skin doesn't need. No fillers. No synthetics. Just a scrub that genuinely works.</p>
-      <p>Use it in the shower on your face, body, elbows, and knees. The coarse coffee grounds exfoliate while the almond oil nourishes. Rinse to reveal skin that glows for days - not hours. Suitable for all genders, all ages, all skin types.</p>
+      <p>Our Coffee &amp; Almond Organic Scrub is made with <strong>100% natural ingredients</strong> - ground coffee, sweet almond oil and nothing your skin doesn't need. No fillers. No synthetics. Just a scrub that genuinely works.</p>
+      <p>Use it in the shower on your face, body, elbows and knees. The coarse coffee grounds exfoliate while the almond oil nourishes. Rinse to reveal skin that glows for days - not hours. Suitable for all genders, all ages, all skin types.</p>
     </div>
   </section>
 
@@ -196,7 +196,7 @@
       <div class="benefit-card fade-up">
         <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21H17"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
         <h3>Balances Skin pH</h3>
-        <p>Coffee's polyphenols regulate your skin's pH - less sebum, fewer breakouts, and skin that stays smooth and hydrated all day.</p>
+        <p>Coffee's polyphenols regulate your skin's pH - less sebum, fewer breakouts and skin that stays smooth and hydrated all day.</p>
       </div>
       <div class="benefit-card fade-up" style="transition-delay:.08s">
         <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
@@ -211,12 +211,13 @@
       <div class="benefit-card fade-up">
         <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
         <h3>De-Puffs Eyes</h3>
-        <p>Caffeine tightens skin, fights free radicals, and visibly reduces dark circles and morning puffiness around the eye area.</p>
+        <p>Caffeine tightens skin, fights free radicals and visibly reduces dark circles and morning puffiness around the eye area.</p>
       </div>
       <div class="benefit-card fade-up" style="transition-delay:.08s">
         <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
         <h3>Almond Oil Brightens</h3>
-        <p>Niacinamide in almond oil fades age spots, blemishes, and dark circles for noticeably more radiant, even-toned skin.</p>
+        <p>Niacinamide in almond oil fades age spots, blemishes and dark circles for noticeably more radiant, even-toned skin.</p>
+        <p>It is lightweight, non-comedogenic and rich in Vitamin E, which helps hydrate, reduce inflammation and improves the complexion.</p>
       </div>
       <div class="benefit-card fade-up" style="transition-delay:.16s">
         <span class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"/></svg></span>
@@ -264,7 +265,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Coffee &amp; Almond<span>Organic Scrub</span></div>
-        <p class="footer-tagline">Three products. One ritual. Organic, intentional, and designed for every body.</p>
+        <p class="footer-tagline">Three products. One ritual. Organic, intentional and designed for every body.</p>
       </div>
       <div class="footer-col">
         <h5>Navigate</h5>

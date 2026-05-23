@@ -507,7 +507,7 @@ $v = [
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Coffee &amp; Almond<span>Organic Scrub</span></div>
-        <p class="footer-tagline">Three products. One ritual. Organic, intentional, and designed for every body.</p>
+        <p class="footer-tagline">Three products. One ritual. Organic, intentional and designed for every body.</p>
       </div>
       <div class="footer-col">
         <h5>Navigate</h5>
