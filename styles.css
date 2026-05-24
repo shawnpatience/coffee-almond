@@ -323,8 +323,11 @@ h2 em { font-style: italic; color: var(--teal); }
 .marquee-inner {
   display: flex;
   white-space: nowrap;
+  -webkit-animation: marquee 10s linear infinite;
   animation: marquee 10s linear infinite;
+  -webkit-animation-play-state: running !important;
   animation-play-state: running !important;
+  will-change: transform;
 }
 .marquee-item {
   display: inline-flex;
@@ -341,6 +344,10 @@ h2 em { font-style: italic; color: var(--teal); }
   width: 3px; height: 3px;
   border-radius: 50%;
   background: var(--teal-mid);
+}
+@-webkit-keyframes marquee {
+  from { -webkit-transform: translateX(0); transform: translateX(0); }
+  to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
