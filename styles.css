@@ -323,7 +323,8 @@ h2 em { font-style: italic; color: var(--teal); }
 .marquee-inner {
   display: flex;
   white-space: nowrap;
-  animation: marquee 21s linear infinite;
+  animation: marquee 10s linear infinite;
+  animation-play-state: running !important;
 }
 .marquee-item {
   display: inline-flex;
