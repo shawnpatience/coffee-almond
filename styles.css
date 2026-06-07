@@ -518,7 +518,7 @@ h2 em { font-style: italic; color: var(--teal); }
   overflow: hidden;
 }
 .product-card-img {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   overflow: hidden;
   position: relative;
   background: var(--almond-light);
@@ -526,10 +526,11 @@ h2 em { font-style: italic; color: var(--teal); }
 .product-card-img img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform 0.65s ease;
 }
-.product-card:hover .product-card-img img { transform: scale(1.07); }
+.product-card:hover .product-card-img img { transform: scale(1.03); }
 .product-card-num {
   position: absolute;
   top: 18px; left: 18px;
