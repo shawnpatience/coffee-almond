@@ -9,12 +9,12 @@
    ══════════════════════════════════════════════════ */
 
 // ── Config ────────────────────────────────────────
-$pf_sandbox      = true;               // ← set to false when going live
-$pf_merchant_id  = '10000100';         // ← replace with your live Merchant ID
+$pf_sandbox      = false;
+$pf_merchant_id  = '35024455';
 $pf_passphrase   = '';                 // ← match what you set in PayFast dashboard
 
-$notification_email = 'jodiepatience@gmail.com'; // Your order notification email
-$from_email         = 'orders@yourdomain.co.za'; // ← change to your domain email
+$notification_email = 'jodiepatience@gmail.com';
+$from_email         = 'orders@coffeeandalmondscrub.co.za';
 
 $pf_host = $pf_sandbox ? 'sandbox.payfast.co.za' : 'www.payfast.co.za';
 $log_file = __DIR__ . '/payfast_ipn.log';

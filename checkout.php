@@ -5,17 +5,17 @@
    ══════════════════════════════════════════════════ */
 
 // ── PayFast config ────────────────────────────────
-$pf_merchant_id  = '10000100';           // SANDBOX ID - replace when live
-$pf_merchant_key = '46f0cd694581a';      // SANDBOX KEY - replace when live
+$pf_merchant_id  = '35024455';
+$pf_merchant_key = 't93rmyteoc6h5';
 $pf_passphrase   = '';                   // Set only if you add one in PayFast dashboard
-$pf_sandbox      = true;                 // ← set to false when going live
+$pf_sandbox      = false;
 
 $pf_url = $pf_sandbox
     ? 'https://sandbox.payfast.co.za/eng/process'
     : 'https://www.payfast.co.za/eng/process';
 
 // ── Site URLs - update to your real domain when live ──
-$site_url   = 'https://yourdomain.co.za';  // ← change this
+$site_url   = 'https://coffeeandalmondscrub.co.za';
 $return_url = $site_url . '/return.html';
 $cancel_url = $site_url . '/cancel.html';
 $notify_url = $site_url . '/notify.php';
