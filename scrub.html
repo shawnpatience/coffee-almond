@@ -68,13 +68,15 @@
     }
     .product-about p strong { color: var(--espresso); font-weight: 500; }
     .product-about-image {
-      overflow: hidden;
-      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
     }
     .product-about-image img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-height: 620px;
+      object-fit: contain;
       display: block;
     }
     @media (max-width: 760px) {
