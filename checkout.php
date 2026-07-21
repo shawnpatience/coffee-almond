@@ -515,35 +515,6 @@ $v = [
 
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">Coffee &amp; Almond<span>Organic Scrub</span></div>
-        <p class="footer-tagline">Three products. One ritual. Organic, intentional and designed for every body.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="our-story.html">Grounds for Everything</a></li>
-          <li><a href="scrub.html">The Scrub</a></li>
-          <li><a href="guasha.html">Gua Sha</a></li>
-          <li><a href="eyemask.html">Eye Mask</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Order &amp; Follow</h5>
-        <ul>
-          <li><a href="https://www.instagram.com/coffeeandalmondscrub/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/coffeealmondorganicscrub/" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2016–2026 Coffee &amp; Almond Organic Scrub. All rights reserved.</p>
-    </div>
-  </footer>
 
   <?php if ($go): ?>
   <!-- Auto-submit to PayFast once form validated -->
