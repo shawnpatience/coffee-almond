@@ -52,38 +52,19 @@
     /* ── About block ── */
     .product-about {
       background: var(--warm-white);
-      padding: clamp(32px, 5vw, 56px) clamp(20px, 8vw, 80px);
-      max-width: 1100px;
+      padding: clamp(32px, 5vw, 56px) clamp(20px, 8vw, 120px);
+      max-width: 860px;
       margin: 0 auto;
     }
-    .about-inner {
-      display: flex;
-      align-items: center;
-      gap: clamp(32px, 5vw, 64px);
-    }
-    .about-text { flex: 1; min-width: 0; }
     .product-about h2 { margin-bottom: 16px; }
     .product-about p {
       font-size: 0.96rem;
       line-height: 1.9;
       color: var(--text-muted);
       margin-bottom: 12px;
+      max-width: 64ch;
     }
     .product-about p strong { color: var(--espresso); font-weight: 500; }
-    .about-img {
-      flex: 0 0 auto;
-      width: clamp(200px, 34%, 380px);
-    }
-    .about-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-    @media (max-width: 700px) {
-      .about-inner { flex-direction: column; }
-      .about-img { width: 100%; max-width: 300px; margin: 0 auto; }
-    }
 
     /* ── Benefits grid ── */
     .product-benefits {
@@ -204,16 +185,11 @@
 
   <!-- ══ ABOUT ══ -->
   <section class="product-about">
-    <div class="about-inner fade-up">
-      <div class="about-text">
-        <div class="section-label">What it does</div>
-        <h2>Darkness, pressure, <em>and temperature.</em></h2>
-        <p>Our weighted eye mask works on three levels. The <strong>gentle weight</strong> applies deep-touch pressure that activates your parasympathetic nervous system - the same principle behind weighted blankets, but targeted exactly where you need it.</p>
-        <p>The <strong>complete blackout</strong> signals your brain to produce melatonin, accelerating sleep onset. And the ability to <strong>heat or cool</strong> the mask adds spa-level therapy to your nightly routine - for free, at home, every night.</p>
-      </div>
-      <div class="about-img">
-        <img src="EyeMask-tab.jpeg" alt="Coffee &amp; Almond Weighted Eye Mask" />
-      </div>
+    <div class="about-text fade-up">
+      <div class="section-label">What it does</div>
+      <h2>Darkness, pressure, <em>and temperature.</em></h2>
+      <p>Our weighted eye mask works on three levels. The <strong>gentle weight</strong> applies deep-touch pressure that activates your parasympathetic nervous system - the same principle behind weighted blankets, but targeted exactly where you need it.</p>
+      <p>The <strong>complete blackout</strong> signals your brain to produce melatonin, accelerating sleep onset. And the ability to <strong>heat or cool</strong> the mask adds spa-level therapy to your nightly routine - for free, at home, every night.</p>
     </div>
   </section>
 
