@@ -21,7 +21,7 @@ $cancel_url = $site_url . '/cancel.html';
 $notify_url = $site_url . '/notify.php';
 
 // ── Product ───────────────────────────────────────
-$amount    = '699.00';
+$amount    = '585.00';
 $item_name = 'Coffee & Almond - The Complete Ritual Bundle';
 
 // ── Form processing ───────────────────────────────
@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'amount'        => $amount,
             'item_name'     => $item_name,
             'custom_str1'   => $pudo_locker,
+            'custom_str2'   => $cell,
         ];
 
         // Build signature string
@@ -95,12 +96,13 @@ $v = [
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     .checkout-page { min-height: 100vh; padding-top: 80px; }
 
     /* ── Page hero ── */
     .checkout-hero {
-      background: var(--espresso);
+      background: var(--cream);
       padding: clamp(40px, 6vw, 64px) 0 clamp(32px, 4vw, 52px);
       text-align: center;
       position: relative;
@@ -113,8 +115,8 @@ $v = [
       background: radial-gradient(ellipse at 60% 40%, rgba(196,149,106,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .checkout-hero .section-label { justify-content: center; color: var(--almond); margin-bottom: 1rem; }
-    .checkout-hero h1 { color: var(--cream); font-size: clamp(1.8rem, 3vw, 2.8rem); margin: 0 auto; }
+    .checkout-hero .section-label { justify-content: center; color: var(--espresso); margin-bottom: 1rem; }
+    .checkout-hero h1 { color: var(--espresso); font-size: clamp(1.8rem, 3vw, 2.8rem); margin: 0 auto; }
     .checkout-hero h1 em { color: var(--latte); }
 
     /* ── Main layout ── */
@@ -130,25 +132,26 @@ $v = [
 
     /* ── Order summary ── */
     .order-summary {
-      background: var(--espresso);
+      background: var(--warm-white);
+      border: 1px solid var(--almond-light);
       border-radius: 4px;
       padding: clamp(28px, 4vw, 44px);
-      color: var(--cream);
+      color: var(--espresso);
       position: sticky;
       top: 100px;
     }
-    .order-summary .section-label { color: var(--almond); margin-bottom: 1.25rem; }
+    .order-summary .section-label { color: var(--espresso); margin-bottom: 1.25rem; }
     .order-summary h2 {
       font-family: var(--serif);
       font-size: clamp(1.4rem, 2.5vw, 2rem);
-      color: var(--cream);
+      color: var(--espresso);
       margin-bottom: 0.5rem;
       font-weight: 400;
     }
     .order-summary h2 em { color: var(--latte); font-style: italic; }
     .order-summary-divider {
       height: 1px;
-      background: rgba(212,184,150,0.25);
+      background: var(--almond-light);
       margin: 1.5rem 0;
     }
     .order-includes {
@@ -163,7 +166,7 @@ $v = [
       align-items: center;
       gap: 10px;
       font-size: 0.88rem;
-      color: rgba(245,239,227,0.82);
+      color: var(--text-muted);
       font-weight: 300;
     }
     .order-includes li::before {
@@ -171,13 +174,13 @@ $v = [
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--teal-mid);
+      background: var(--teal);
       flex-shrink: 0;
     }
     .order-price {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 4vw, 3rem);
-      color: var(--cream);
+      color: var(--espresso);
       line-height: 1;
       margin-bottom: 0.4rem;
     }
@@ -185,12 +188,12 @@ $v = [
       font-size: 0.72rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--teal-mid);
+      color: var(--teal-dark);
     }
     .order-delivery-note {
       margin-top: 1.5rem;
       font-size: 0.82rem;
-      color: rgba(245,239,227,0.55);
+      color: var(--text-muted);
       line-height: 1.65;
     }
     .secure-badge {
@@ -199,13 +202,13 @@ $v = [
       gap: 8px;
       margin-top: 1.75rem;
       padding-top: 1.25rem;
-      border-top: 1px solid rgba(212,184,150,0.2);
+      border-top: 1px solid var(--almond-light);
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(245,239,227,0.45);
+      color: var(--text-muted);
     }
-    .secure-badge svg { width: 14px; height: 14px; color: var(--teal-mid); flex-shrink: 0; }
+    .secure-badge svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; }
 
     /* ── Form card ── */
     .checkout-form-card {
@@ -406,7 +409,7 @@ $v = [
 
       <div class="order-summary-divider"></div>
 
-      <div class="order-price">R 699</div>
+      <div class="order-price">R 585</div>
       <div class="order-price-note">Complete set · Free PUDO delivery</div>
 
       <p class="order-delivery-note">
@@ -471,17 +474,27 @@ $v = [
                  placeholder="082 000 0000" autocomplete="tel" required />
         </div>
 
-        <div class="field-group">
+        <div class="field-group" style="position:relative;">
           <label for="pudo_locker">Nearest PUDO Locker</label>
-          <input type="text" id="pudo_locker" name="pudo_locker"
-                 value="<?= $v['pudo_locker'] ?>"
-                 placeholder="e.g. Checkers Bellville, Durbanville Pick n Pay…" required />
-          <a href="https://pudo.co.za/find-a-locker" target="_blank" rel="noopener" class="pudo-helper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            Find my nearest PUDO locker →
-          </a>
+          <div style="position:relative;">
+            <input type="text" id="pudo_locker" name="pudo_locker"
+                   value="<?= $v['pudo_locker'] ?>"
+                   placeholder="Start typing your suburb or store name…"
+                   autocomplete="off" required />
+            <div id="pudo-dropdown" style="
+              display:none;
+              position:absolute;top:100%;left:0;right:0;z-index:500;
+              background:#fff;
+              border:1px solid var(--almond-light);
+              border-top:none;
+              border-radius:0 0 3px 3px;
+              box-shadow:0 8px 24px rgba(0,0,0,0.10);
+              max-height:240px;overflow-y:auto;
+            "></div>
+          </div>
+          <span style="font-size:0.74rem;color:var(--text-muted);margin-top:4px;display:block;">
+            Type your suburb or nearest store (e.g. "Bellville", "Checkers", "Pick n Pay")
+          </span>
         </div>
 
         <button type="submit" class="btn-checkout">
@@ -489,7 +502,7 @@ $v = [
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
           </svg>
-          Pay R 699 Securely
+          Pay R 585 Securely
         </button>
 
         <p class="form-note">
@@ -522,7 +535,7 @@ $v = [
       <div class="footer-col">
         <h5>Order &amp; Follow</h5>
         <ul>
-          <li><a href="https://www.instagram.com/coffeealmondorganicscrub/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.instagram.com/coffeeandalmondscrub/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.facebook.com/coffeealmondorganicscrub/" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
@@ -543,6 +556,7 @@ $v = [
   <?php endif; ?>
 
   <script>
+    // ── Navbar hamburger ─────────────────────────────
     const hamburger = document.getElementById('nav-hamburger');
     const navLinks  = document.getElementById('nav-links');
     if (hamburger && navLinks) {
@@ -559,6 +573,89 @@ $v = [
         });
       });
     }
+
+    // ── PUDO locker autocomplete ──────────────────────
+    const pudoInput    = document.getElementById('pudo_locker');
+    const pudoDropdown = document.getElementById('pudo-dropdown');
+    let pudoTimer      = null;
+    let activeIndex    = -1;
+
+    function renderDropdown(lockers, noResults) {
+      pudoDropdown.innerHTML = '';
+      if (!lockers.length) {
+        if (noResults) {
+          pudoDropdown.innerHTML = '<div style="padding:12px 14px;font-size:0.83rem;color:#8a7a6a;font-style:italic;">No lockers found — try a nearby suburb or store name</div>';
+          pudoDropdown.style.display = 'block';
+        } else {
+          pudoDropdown.style.display = 'none';
+        }
+        return;
+      }
+      lockers.forEach((l, i) => {
+        const item = document.createElement('div');
+        item.style.cssText = 'padding:10px 14px;cursor:pointer;border-bottom:1px solid #f0ebe3;font-size:0.88rem;line-height:1.4;';
+        const sub = [l.address, l.hint].filter(Boolean).join(' — ');
+        item.innerHTML = '<strong style="color:#2c1a0e;">' + l.name + '</strong>'
+          + (sub ? '<br><span style="color:#8a7a6a;font-size:0.78rem;">' + sub + '</span>' : '');
+        item.addEventListener('mousedown', e => {
+          e.preventDefault();
+          pudoInput.value = l.name + (l.address ? ', ' + l.address : '');
+          pudoDropdown.style.display = 'none';
+        });
+        item.addEventListener('mouseover', () => setActive(i));
+        pudoDropdown.appendChild(item);
+      });
+      pudoDropdown.style.display = 'block';
+      activeIndex = -1;
+    }
+
+    function setActive(i) {
+      const items = pudoDropdown.querySelectorAll('div');
+      items.forEach((el, idx) => {
+        el.style.background = idx === i ? '#f5f0e8' : '';
+      });
+      activeIndex = i;
+    }
+
+    pudoInput.addEventListener('input', () => {
+      clearTimeout(pudoTimer);
+      const q = pudoInput.value.trim();
+      if (q.length < 2) { pudoDropdown.style.display = 'none'; return; }
+      pudoTimer = setTimeout(() => {
+        fetch('pudo_search.php?q=' + encodeURIComponent(q))
+          .then(r => r.json())
+          .then(data => {
+            if (Array.isArray(data)) renderDropdown(data, true);
+          })
+          .catch(() => {
+            pudoDropdown.innerHTML = '<div style="padding:12px 14px;font-size:0.83rem;color:#c0392b;">Could not load lockers — please type your locker name manually</div>';
+            pudoDropdown.style.display = 'block';
+          });
+      }, 250);
+    });
+
+    pudoInput.addEventListener('keydown', e => {
+      const items = pudoDropdown.querySelectorAll('div');
+      if (!items.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActive(Math.min(activeIndex + 1, items.length - 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActive(Math.max(activeIndex - 1, 0));
+      } else if (e.key === 'Enter' && activeIndex >= 0) {
+        e.preventDefault();
+        items[activeIndex].dispatchEvent(new Event('mousedown'));
+      } else if (e.key === 'Escape') {
+        pudoDropdown.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('click', e => {
+      if (!pudoInput.contains(e.target) && !pudoDropdown.contains(e.target)) {
+        pudoDropdown.style.display = 'none';
+      }
+    });
   </script>
 
 </body>
